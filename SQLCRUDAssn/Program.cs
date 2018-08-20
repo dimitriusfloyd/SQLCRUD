@@ -10,16 +10,7 @@ namespace SQLCRUDAssn
     {
         static void Main(string[] args)
         {
-            IConfiguration configBuilder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-#if DEBUG
-                .AddJsonFile("appsettings.debug.json")
-#else
-                .AddJsonFile("appsettings.release.json")
-#endif
-                .Build();
-
-            string connStr = configBuilder.GetConnectionString("DefaultConnection");
+            
 
 
 
@@ -47,19 +38,9 @@ namespace SQLCRUDAssn
 
         static void AddNewCategory(string newCategory)
         {
-            
-            IConfiguration configBuilder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-#if DEBUG
-                .AddJsonFile("appsettings.debug.json")
-#else
-                .AddJsonFile("appsettings.release.json")
-#endif
-                .Build();
+            string connString = Repository.ConnectionString;
 
-            string connStr = configBuilder.GetConnectionString("DefaultConnection");
-
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             using (conn)
             {
@@ -76,19 +57,10 @@ namespace SQLCRUDAssn
 
         static List<string> GetProductNamesInPriceRange(int maxPrice)
         {
-            
-            IConfiguration configBuilder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-#if DEBUG
-                .AddJsonFile("appsettings.debug.json")
-#else
-                .AddJsonFile("appsettings.release.json")
-#endif
-                .Build();
 
-            string connStr = configBuilder.GetConnectionString("DefaultConnection");
+            string coonString = Repository.ConnectionString;
 
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(coonString);
 
             using (conn)
             {
@@ -113,19 +85,9 @@ namespace SQLCRUDAssn
 
         static void PriceChange(int newPrice)
         {
-            
-            IConfiguration configBuilder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-#if DEBUG
-                .AddJsonFile("appsettings.debug.json")
-#else
-                .AddJsonFile("appsettings.release.json")
-#endif
-                .Build();
+            string connString = Repository.ConnectionString;
 
-            string connStr = configBuilder.GetConnectionString("DefaultConnection");
-
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             using (conn)
             {
@@ -141,19 +103,10 @@ namespace SQLCRUDAssn
 
         static void DeleteProduct(string productToDelete)
         {
-            
-            IConfiguration configBuilder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-#if DEBUG
-                .AddJsonFile("appsettings.debug.json")
-#else
-                .AddJsonFile("appsettings.release.json")
-#endif
-                .Build();
 
-            string connStr = configBuilder.GetConnectionString("DefaultConnection");
+            string connString = Repository.ConnectionString;
 
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             using (conn)
             {
